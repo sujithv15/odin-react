@@ -1,0 +1,29 @@
+#root {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+}
+
+.game {
+    background-color: lightblue;
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+
+    max-width: 1280px;
+    flex: 1
+
+}
+
+img {
+    max-height: 640px;
+    max-width: 640px;
+}
+
+.player{
+    border: solid blue;
+    background-color: purple;
+}
+
