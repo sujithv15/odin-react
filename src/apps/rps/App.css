@@ -6,7 +6,7 @@
 }
 
 .game {
-    background-color: lightblue;
+
     display: flex;
     gap: 2rem;
     justify-content: center;
@@ -18,12 +18,11 @@
 }
 
 img {
-    max-height: 640px;
-    max-width: 640px;
+    height: 320px;
+    width: 320px;
 }
 
 .player{
-    border: solid blue;
-    background-color: purple;
+
 }
 
