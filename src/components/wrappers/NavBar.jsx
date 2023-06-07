@@ -7,11 +7,13 @@ const Wrapper = styled.nav`
   justify-content: center;
 
 
+
   .nav {
     display: flex;
     width: 90vw;
     align-items: center;
     justify-content: space-around;
+    line-height: 4rem;
   }
   
 `

@@ -1,9 +1,9 @@
-import NavBar from "./components/index.jsx";
-import { Rps, EtchSketch } from './apps/index.jsx'
+import { Home, Rps, EtchSketch } from './pages/index.jsx'
+import { SharedLayout } from './components/index.jsx'
 import './App.css'
 import {createBrowserRouter, createRoutesFromElements, Route, RouterProvider} from "react-router-dom";
-import Home from "./Home.jsx";
-import SharedLayout from "./SharedLayout.jsx";
+
+
 
 const App = () => {
 

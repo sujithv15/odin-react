@@ -1,9 +1,11 @@
-import Wrapper from "../../assets/wrappers/Rps.jsx";
+import Wrapper from "./Wrapper.jsx";
 import rock from './assets/images/rock.jpg'
 import paper from './assets/images/paper.jpeg'
 import scissors from './assets/images/scissors.jpg'
 import ring from './assets/images/background-ring.jpg'
 import logo from './assets/images/logo.jpg'
+import playerDefault from  './assets/images/player.jpg'
+import cpuDefault from './assets/images/cpu.jpg'
 import {useState} from "react";
 import {useEffect} from "react";
 
@@ -36,43 +38,42 @@ const App = () => {
 		}
 	}
 
-	const handleClick = async (option) => {
+	const handleClick = (option) => {
 		setUserAction(false)
-		await setPlayer(option)
+		setPlayer(option)
 		console.log(`Player chose ${player}`)
-		await setCpu(options[Math.floor(Math.random() * 2)])
+		setCpu(options[Math.floor(Math.random() * 2)])
 		console.log(`CPU chose ${cpu}`)
 		console.log(score)
 		calcScore()
 	}
 
 	const newGame = () => {
-		setPlayer('')
-		setCpu('')
+		setPlayer(playerDefault)
+		setCpu(cpuDefault)
 		setScore({player: 0, cpu: 0})
-		setDisplayAlert(false)
-		setUserAction(false)
-		setAlertText('')
+		setDisplayAlert(true)
+		setUserAction(true)
+		setAlertText('Rock, Paper, Scissors, SHOOT!')
 		setGameMenu(false)
 	}
 
 	return (
 		<Wrapper>
-
-			<header>
-				<h2>Rock, Paper, Scissors</h2>
-			</header>
-
 			{
 				gameMenu ?
 
 				<div className='menu'>
+					<header>
+						<h2>Rock, Paper, Scissors</h2>
+					</header>
 					<img src={logo} alt='logo'/>
 					<div>
 						<button onClick={newGame}>Play</button>
 					</div>
 				</div>
 			:
+
 					<>
 			<div className='info'>
 				{displayAlert && alertText}
@@ -89,8 +90,6 @@ const App = () => {
 
 			<div className='game' >
 
-					<img src={ring} className='img-ring' alt='ring'/>
-
 					<div className='player'>
 					<img src={player} className='circle' alt='p1-image'/>
 				</div>
@@ -103,16 +102,14 @@ const App = () => {
 
 
 
-			{userAction ?
+			{userAction &&
 			<>
 				<button onClick={()=>handleClick(rock)}>Rock</button>
 				<button onClick={()=>handleClick(paper)}>Paper</button>
 				<button onClick={()=>handleClick(scissors)}>Scissors</button>
-			</>
-				:
-			<>
-				<button onClick={()=>setUserAction(!userAction)}>Play!</button>
 			</>}
+
+
 			<div>
 				<button onClick={newGame}>Reset!</button>
 			</div>

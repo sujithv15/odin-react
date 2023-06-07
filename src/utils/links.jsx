@@ -1,4 +1,4 @@
-import {Rps, EtchSketch} from "../apps";
+import {Rps, EtchSketch} from "../pages";
 import Home from '../Home.jsx'
 const links = [
 	{

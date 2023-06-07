@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
-import svLogo from './assets/images/sv-logo.jpg'
-import Wrapper from "./assets/wrappers/Home.jsx";
+import svLogo from '../assets/images/sv-logo.jpg'
+import Wrapper from '../components/wrappers/Home.jsx'
+
 
 const Home = () => {
 	return (
@@ -15,6 +16,7 @@ const Home = () => {
 				<Link to='/rps' className='link'>RPS Game</Link>
 			</div>
 		</Wrapper>
+
 	)
 }
 

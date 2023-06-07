@@ -1,19 +1,28 @@
 import {NavLink} from "react-router-dom";
 import {Outlet} from "react-router-dom";
-import NavBar from "./components/index.jsx";
+import NavBar from './NavBar.jsx'
+import Wrapper from "./wrappers/SharedLayout.jsx";
 
 const SharedLayout = () => {
 	return (
-		<div className='shared-layout'>
+		<Wrapper>
 			<header>
-				<NavBar/>
+
 			</header>
+
+			<nav>
+				<NavBar/>
+			</nav>
 
 			<main>
 				<Outlet />
 			</main>
 
-		</div>
+			<footer>
+
+			</footer>
+
+		</Wrapper>
 	)
 }
 

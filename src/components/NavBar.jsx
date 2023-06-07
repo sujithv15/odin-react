@@ -1,5 +1,5 @@
 
-import Wrapper from '../assets/wrappers/NavBar.jsx'
+import Wrapper from './wrappers/NavBar.jsx'
 import {NavLink} from "react-router-dom";
 
 const NavBar = () => {

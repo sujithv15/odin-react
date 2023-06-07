@@ -5,11 +5,11 @@ const Wrapper = styled.nav`
   display: flex;
   align-items: center;
   justify-content: center;
-  
-  
-  * {
-  	background: black;
-  }
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+
   
   .container img {
     width: 25%;

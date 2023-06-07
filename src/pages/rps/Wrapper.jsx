@@ -1,23 +1,24 @@
 import styled from "styled-components";
 
-import background from '../../apps/rps/assets/images/background-ring.jpg'
+import background from '../rps/assets/images/background-ring.jpg'
 
 const Wrapper = styled.nav`
 
-  max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
-
+	
+  background-image: url(${background});
+  background-position: center;
   .img-ring {
-    opacity: 0.30;
+
     position: absolute;
-    width: 150%;
-    height: 150%;
+    width: 125%;
+    height: 125%;
   }
   
   .info {
-  	margin: 6rem;  
+  	margin: 1rem;  
   }
   
   .game {
@@ -25,16 +26,16 @@ const Wrapper = styled.nav`
     gap: 5rem;
     justify-content: center;
     align-items: center;
-    max-width: 1280px;
-    height: 720px;
+    height: 420px;
     flex: 1;
-    position:relative;
+
 }
   
   .score {
     display: flex;
     justify-content: space-around;
-    margin: 2rem;
+    z-index: 1;
+
   }
 
   img {
@@ -42,8 +43,13 @@ const Wrapper = styled.nav`
     width: 320px;
   }
 
-  .player{
+  .player {
+    z-index: 1;
   }
+  .cpu {
+    z-index: 1;
+  };
+
   
   .circle {
     border-radius: 160px;
