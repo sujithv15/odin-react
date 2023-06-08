@@ -1,22 +1,22 @@
-import {Rps, EtchSketch} from "../pages";
-import Home from '../Home.jsx'
+import {Rps, EtchSketch, Home} from "../pages";
+
 const links = [
 	{
 		id: 1,
-		text: 'home',
+		text: 'Home',
 		path: '/',
 		icon: <Home />,
 	},
 	{
 		id: 2,
-		text: 'rock-paper-scissor',
-		path: 'rock-paper-scissor',
+		text: 'Rock, Paper, Scissors',
+		path: '/rps',
 		icon: <Rps />,
 	},
 	{
 		id: 3,
 		text: 'etch-sketch',
-		path: 'etch-sketch',
+		path: '/etch',
 		icon: <EtchSketch />,
 	},
 ];

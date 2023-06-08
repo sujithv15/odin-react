@@ -19,7 +19,7 @@ const SharedLayout = () => {
 			</main>
 
 			<footer>
-
+				<p>&copy; 2023 Sujith Varughese</p>
 			</footer>
 
 		</Wrapper>

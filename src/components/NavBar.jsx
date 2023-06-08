@@ -1,4 +1,4 @@
-
+import NavLinks from "./NavLinks.jsx";
 import Wrapper from './wrappers/NavBar.jsx'
 import {NavLink} from "react-router-dom";
 
