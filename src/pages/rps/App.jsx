@@ -1,13 +1,11 @@
-import Wrapper from "./Wrapper.jsx";
+import Wrapper from "../../components/wrappers/Rps.jsx";
 import rock from './assets/images/rock.jpg'
 import paper from './assets/images/paper.jpeg'
 import scissors from './assets/images/scissors.jpg'
-import ring from './assets/images/background-ring.jpg'
 import logo from './assets/images/logo.jpg'
 import playerDefault from  './assets/images/player.jpg'
 import cpuDefault from './assets/images/cpu.jpg'
 import {useState} from "react";
-import {useEffect} from "react";
 
 
 const App = () => {

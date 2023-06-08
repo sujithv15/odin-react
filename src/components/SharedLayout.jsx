@@ -6,6 +6,7 @@ import Wrapper from "./wrappers/SharedLayout.jsx";
 const SharedLayout = () => {
 	return (
 		<Wrapper>
+
 			<header>
 
 			</header>

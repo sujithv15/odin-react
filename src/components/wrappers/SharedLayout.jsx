@@ -12,8 +12,8 @@ const Wrapper = styled.nav`
   display: flex;
   flex-direction: column;
   
-  header, nav, main, footer {
 
+  header, nav, main, footer {
     display: grid;
     place-content: center;
     grid-template-columns: 100%;
@@ -27,8 +27,8 @@ const Wrapper = styled.nav`
   }
   
   nav {
-	color: black;
-    border-bottom: 2px solid black;
+    margin-bottom: 1rem;
+    width: 100%;
   }
   
   main {

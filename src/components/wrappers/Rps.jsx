@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-import background from '../rps/assets/images/background-ring.jpg'
+import background from '../../pages/rps/assets/images/background-ring.jpg'
 
-const Wrapper = styled.nav`
+const Rps = styled.nav`
 
   margin: 0 auto;
   padding: 2rem;
@@ -58,4 +58,4 @@ const Wrapper = styled.nav`
 
 `
 
-export default Wrapper
+export default Rps

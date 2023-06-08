@@ -16,6 +16,7 @@ const router = createBrowserRouter(
         <Route path='/' element={<SharedLayout />}>
             <Route index element={<Home />} />
             <Route path='/rps' element={<Rps />} />
+            <Route path='/etch' element={<EtchSketch />} />
         </Route>
     )
 )
