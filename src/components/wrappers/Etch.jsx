@@ -5,9 +5,24 @@ const Wrapper = styled.nav`
   justify-content: center;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 
-  .square {
-    border: black solid;
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+  
+  .black {
+    background-color: black;
+  }
+  
+  .white {
+    background-color: white;
+    border: black solid 1px;
+  }
+  
+  .white a:hover a.focus {
+    background-color: gray;
   }
   
 `
