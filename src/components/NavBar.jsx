@@ -11,6 +11,7 @@ const NavBar = () => {
 				<ul>
 					<li><NavLink to='/rps' className='links'>RPS</NavLink></li>
 					<li><NavLink to='/etch' className='links'>Etch-A-Sketch</NavLink></li>
+					<li><NavLink to='/calculator' className='links'>Calculator</NavLink></li>
 				</ul>
 
 			</div>

@@ -6,25 +6,20 @@ const Wrapper = styled.nav`
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-
-  .grid {
+  
+  .grid-nums {
     display: grid;
+    grid-template-columns: repeat(3, 1fr);
   }
   
-  
-  
-  .black {
-    background-color: black;
+  .grid-ops {
+
   }
   
-  .box {
-    border: lightgrey groove 1px;
+  .numbers {
+    padding: 2rem;
   }
-  
-  .box:hover {
-    color: red;
-  }
-  
+
 `
 
 export default Wrapper

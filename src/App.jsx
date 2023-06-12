@@ -1,4 +1,4 @@
-import { Home, Rps, EtchSketch } from './pages/index.jsx'
+import { Home, Rps, EtchSketch, Calculator } from './pages/index.jsx'
 import { SharedLayout } from './components/index.jsx'
 import './App.css'
 import {createBrowserRouter, createRoutesFromElements, Route, RouterProvider} from "react-router-dom";
@@ -17,6 +17,7 @@ const router = createBrowserRouter(
             <Route index element={<Home />} />
             <Route path='/rps' element={<Rps />} />
             <Route path='/etch' element={<EtchSketch />} />
+            <Route path='/calculator' element={<Calculator />} />
         </Route>
     )
 )

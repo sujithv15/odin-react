@@ -18,7 +18,7 @@ const Box = () => {
 	}
 
 	return (
-		<div className='box' style={{background: color}} onClick={handleClick}>[ X ]</div>
+		<div className='box' style={{background: color}} onClick={handleClick}>.-|-.</div>
 	)
 }
 
