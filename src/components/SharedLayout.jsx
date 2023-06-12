@@ -8,12 +8,8 @@ const SharedLayout = () => {
 		<Wrapper>
 
 			<header>
-
-			</header>
-
-			<nav>
 				<NavBar/>
-			</nav>
+			</header>
 
 			<main>
 				<Outlet />

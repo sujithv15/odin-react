@@ -22,11 +22,9 @@ const Wrapper = styled.nav`
   header, footer {
     position: sticky;
   }
-  header {
-    top: 0
-  }
+
   
-  nav {
+  header {
     margin-bottom: 1rem;
     width: 100%;
   }

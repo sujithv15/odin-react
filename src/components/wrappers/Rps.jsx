@@ -7,14 +7,13 @@ const Rps = styled.nav`
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
-	
-  background-image: url(${background});
-  background-position: center;
-  .img-ring {
+  display: flex;
+  
 
+  .img-ring {
     position: absolute;
-    width: 125%;
-    height: 125%;
+    width: 100%;
+    height: 100%;
   }
   
   .info {

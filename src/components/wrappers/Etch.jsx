@@ -7,10 +7,11 @@ const Wrapper = styled.nav`
   padding: 0;
   box-sizing: border-box;
 
-  .container {
+  .grid {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
   }
+  
+  
   
   .black {
     background-color: black;

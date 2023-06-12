@@ -6,10 +6,11 @@ import logo from './assets/images/logo.jpg'
 import playerDefault from  './assets/images/player.jpg'
 import cpuDefault from './assets/images/cpu.jpg'
 import {useState} from "react";
+import background from './assets/images/background-ring.jpg'
+
 
 
 const App = () => {
-
 
 	const [player, setPlayer] = useState('')
 	const [cpu, setCpu] = useState('')
@@ -56,6 +57,10 @@ const App = () => {
 		setGameMenu(false)
 	}
 
+	const playAgain = () => {
+		setUserAction(true)
+	}
+
 	return (
 		<Wrapper>
 			{
@@ -73,8 +78,12 @@ const App = () => {
 			:
 
 					<>
+
+			{/*<img src={background} className='img-ring' alt='background'/>*/}
+
 			<div className='info'>
 				{displayAlert && alertText}
+
 			</div>
 
 			<div className='score'>
@@ -109,6 +118,7 @@ const App = () => {
 
 
 			<div>
+				<button onClick={playAgain}>Play Again!</button>
 				<button onClick={newGame}>Reset!</button>
 			</div>
 					</>
