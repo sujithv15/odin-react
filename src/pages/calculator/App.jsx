@@ -3,6 +3,13 @@ import {useState} from "react";
 
 const App = () => {
 
+	const calc = (func, value) => {
+
+
+
+	}
+
+
 	// state to manage total calculation
 	const [total, setTotal] = useState([])
 
@@ -14,6 +21,7 @@ const App = () => {
 		setCurrent((prevState) => {
 			return prevState + e.target.value
 		})
+		console.log(typeof current)
 		console.log(current)
 	}
 
@@ -24,6 +32,9 @@ const App = () => {
 
 	const clear = () => {
 		setCurrent(0)
+	}
+	const clearAll = () => {
+		setTotal([])
 	}
 
 	return (
@@ -49,6 +60,7 @@ const App = () => {
 					<button className='operators' value={'='} onClick={handleOp}>=</button>
 				</div>
 				<button className='operators' onClick={clear}>clear</button>
+				<button className='operators' onClick={clearAll}>clear all</button>
 
 			</div>
 		</Wrapper>

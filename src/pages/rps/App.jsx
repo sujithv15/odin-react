@@ -1,56 +1,84 @@
 import Wrapper from "../../components/wrappers/Rps.jsx";
-import rock from './assets/images/rock.jpg'
-import paper from './assets/images/paper.jpeg'
-import scissors from './assets/images/scissors.jpg'
+import rockImg from './assets/images/rock.jpg'
+import paperImg from './assets/images/paper.jpeg'
+import scissorsImg from './assets/images/scissors.jpg'
 import logo from './assets/images/logo.jpg'
-import playerDefault from  './assets/images/player.jpg'
-import cpuDefault from './assets/images/cpu.jpg'
+import playerImg from  './assets/images/player.jpg'
+import cpuImg from './assets/images/cpu.jpg'
 import {useState} from "react";
 import background from './assets/images/background-ring.jpg'
+import {useEffect} from "react";
 
-
+const playerInitial = {
+	img: playerImg,
+	option: null,
+	win: false,
+	score: 0,
+	alert: 'You win! Play again?',
+	showAlert: false,
+}
+const cpuInitial = {
+	img: cpuImg,
+	option: null,
+	win: false,
+	score: 0,
+	alert: 'Sorry, you lose. Try Again!',
+	showAlert: false,
+}
 
 const App = () => {
 
-	const [player, setPlayer] = useState('')
-	const [cpu, setCpu] = useState('')
-	const [score, setScore] = useState({player: 0, cpu: 0})
+	const [player, setPlayer] = useState(playerInitial)
+	const [cpu, setCpu] = useState(cpuInitial)
 	const [displayAlert, setDisplayAlert] = useState(false)
 	const [alertText, setAlertText] = useState('')
-	const [userAction, setUserAction] = useState(false)
+	const [userAction, setUserAction] = useState(true)
 	const [gameMenu, setGameMenu] = useState(true)
 
+	const rock = {
+		name: 'rock',
+		img: rockImg,
+		beats: 'scissors'
+	}
+	const paper = {
+		name: 'paper',
+		img: paperImg,
+		beats: 'rock'
+	}
+	const scissors = {
+		name: 'scissors',
+		img: scissorsImg,
+		beats: 'paper'
+	}
 	const options = [rock, paper, scissors]
 
+
+
+
 	const calcScore = () => {
-		console.log(player)
-		console.log(cpu)
-		if (player === cpu) {
+		console.log(player.option.beats)
+		console.log(cpu.option.name)
+		if (player.option === cpu.option) {
+			console.log('tie')
 			return
 		}
-		if ((player === rock && cpu === scissors) || (player === paper && cpu === rock) || (player === scissors && cpu === paper)) {
-			const newScore = score.player + 1
-			setScore({...score, player: newScore})
+		/*
+		if ((player.option === 'rock' && cpu.option === 'scissors') || (player.option === 'paper' && cpu.option === 'rock') || (player.option === 'scissors' && cpu.option === 'paper')) {
+			setPlayer({...player, score: player.score + 1})
+		}
+		*/
+		if (player.option.beats === cpu.option.name) {
+
+			console.log('player win')
+			setPlayer({...player, score: player.score + 1})
 		}
 		else {
-			setScore({...score, cpu: score.cpu + 1})
+			console.log('cpu win')
+			setCpu({...cpu, score: cpu.score + 1})
 		}
-	}
-
-	const handleClick = (option) => {
-		setUserAction(false)
-		setPlayer(option)
-		console.log(`Player chose ${player}`)
-		setCpu(options[Math.floor(Math.random() * 2)])
-		console.log(`CPU chose ${cpu}`)
-		console.log(score)
-		calcScore()
 	}
 
 	const newGame = () => {
-		setPlayer(playerDefault)
-		setCpu(cpuDefault)
-		setScore({player: 0, cpu: 0})
 		setDisplayAlert(true)
 		setUserAction(true)
 		setAlertText('Rock, Paper, Scissors, SHOOT!')
@@ -60,69 +88,64 @@ const App = () => {
 	const playAgain = () => {
 		setUserAction(true)
 	}
+	useEffect(() => {}, [cpu.option])
+
+	//set states for player option after click, then randomly generates and sets cpu state
+	const handleClick = (option) => {
+		setPlayer({...player, option: option})
+		// hides rock, paper, scissor options until user selects to play again or reset
+		setUserAction(false)
+		setCpu({...cpu, option: options[Math.floor(Math.random() * 2)]})
+		calcScore()
+	}
 
 	return (
 		<Wrapper>
-			{
-				gameMenu ?
 
-				<div className='menu'>
-					<header>
-						<h2>Rock, Paper, Scissors</h2>
-					</header>
-					<img src={logo} alt='logo'/>
-					<div>
-						<button onClick={newGame}>Play</button>
-					</div>
-				</div>
-			:
-
-					<>
 
 			{/*<img src={background} className='img-ring' alt='background'/>*/}
 
 			<div className='info'>
 				{displayAlert && alertText}
-
 			</div>
 
 			<div className='score'>
 				<div className='player-score'>
-					Player Score: {score.player}
+					Player Score: {player.score}
 				</div>
 				<div className='cpu-score'>
-					CPU Score: {score.cpu}
+					CPU Score: {cpu.score}
 				</div>
 			</div>
 
 			<div className='game' >
 
 					<div className='player'>
-					<img src={player} className='circle' alt='p1-image'/>
+					<img src={player.img} className='circle' alt='p1-image'/>
 				</div>
 
 				<div className='cpu'>
-					<img src={cpu} className='circle' alt='cpu-image'/>
+					<img src={cpu.img} className='circle' alt='cpu-image'/>
 				</div>
 
 			</div>
 
 
+			{userAction ?
+				<>
+					<button onClick={() => handleClick(rock)}>Rock</button>
+					<button onClick={() => handleClick(paper)}>Paper</button>
+					<button onClick={() => handleClick(scissors)}>Scissors</button>
+				</>
 
-			{userAction &&
-			<>
-				<button onClick={()=>handleClick(rock)}>Rock</button>
-				<button onClick={()=>handleClick(paper)}>Paper</button>
-				<button onClick={()=>handleClick(scissors)}>Scissors</button>
-			</>}
+				:
 
-
-			<div>
-				<button onClick={playAgain}>Play Again!</button>
-				<button onClick={newGame}>Reset!</button>
-			</div>
-					</>
+				<div>
+					<button onClick={playAgain}>Play Again!</button>
+					<button onClick={newGame}>Reset!</button>
+				</div>
 			}
+
 		</Wrapper>
 
 	)

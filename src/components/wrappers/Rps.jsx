@@ -54,7 +54,7 @@ const Rps = styled.nav`
     border-radius: 160px;
     border: 5px double gray;
   }
-
+  
 `
 
 export default Rps

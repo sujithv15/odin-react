@@ -2,79 +2,39 @@ import Wrapper from '../../components/wrappers/Etch.jsx'
 import { useState, useRef } from "react";
 import {useEffect} from "react";
 import Box from './Box.jsx'
+import {nanoid} from "nanoid";
 
 const App = () => {
-	const [grid, setGrid] = useState([])
-	const [gridSize, setGridSize] = useState(0)
-	const [gameRunning, setGameRunning] = useState(false)
-	const refSize = useRef(0)
-	const [gridStyle, setGridStyle] = useState({})
+	// hard coded grid size; possibly make dynamic in future
+	const [grid, setGrid] = useState(Array.from({length: 100}))
+	const [color, setColor] = useState('black')
 
-	const clearGrid = () => {
-		setGameRunning(false)
+	// hard code grid style for 10 columns
+	const styles = {
+		gridTemplateColumns: `repeat(10, 1fr)`
 	}
-
-	const makeGrid = () => {
-		const newGrid = []
-		let x = 0
-		while (x < gridSize) {
-			let row = []
-			let y = 0
-			while (y < gridSize) {
-				// we can use this value to assign key prop to render Box object
-				row.push(`${x}${y}`)
-				y++
-			}
-			newGrid.push(row)
-			x++
-		}
-		setGrid([...newGrid])
-		// use CSS to dynamically set grid rows/columns
-		setGridStyle( { gridTemplateColumns: `repeat(${gridSize}, 1fr)`})
-	}
-
-
-
-	const startGame = (e) => {
-		e.preventDefault()
-		// takes us out of select size menu to enter game
-		setGameRunning(true)
-		// we can use useRef to avoid creating another state which would keep re-rendering as user chooses gridSize
-		setGridSize(refSize.current.value)
-		makeGrid()
-	}
-
-	useEffect(() => {
-		console.log(grid)
-	},[grid])
 
 	return (
 		<Wrapper>
-			{gameRunning ?
-				<div className='container'>
-					<div className='grid' style={gridStyle}>
-						{
-							grid.map(row => {
-								return (
-									row.map(square => {
-										return (
-											<Box key={square}/>
-										)
-									})
-								)
-							})
-						}
-					</div>
-					<button onClick={clearGrid}>clear</button>
-				</div>
-				:
-				<form onSubmit={startGame}>
-					<label htmlFor='size'>size</label>
-					<input type='number' max='50' ref={refSize}/>
-					<button type='submit'>submit</button>
+			<div className='container'>
+				<form>
+					<label htmlFor='color'>color</label>
+					<input type='color' onChange={(e)=>setColor(e.target.value)}/>
 				</form>
-			}
 
+				<div className='grid' style={styles}>
+					{
+						grid.map(square => {
+							const id = nanoid()
+							return (
+								<div key={id}>
+									<Box color={color}/>
+								</div>
+							)
+						})
+					}
+				</div>
+			</div>
 		</Wrapper>
 	)
 }
